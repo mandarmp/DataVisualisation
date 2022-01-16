@@ -1,16 +1,20 @@
+%Errorbar plots for 2 standard error of means
 figure;
+
+load repeatedMovmentTime;
+load changedMovementTime;
 
 hold on;
 mny=mean(repeatedMovementTime); % the y means (assumes columns are observations)
-% err = 2*std(repeatedMovementTime)/sqrt(size(repeatedMovementTime,1));
-err = std(repeatedMovementTime);
+err = 2*std(repeatedMovementTime)/sqrt(size(repeatedMovementTime,1));
+%err = std(repeatedMovementTime);
 errorbar(x_label_locations(1),mny,err,'o')  
 
 hold off;
 hold on;
 mny=mean(changedMovementTime);                    % the y means (assumes columns are observations)
-% err = 2*std(changedMovementTime)/sqrt(size(changedMovementTime,1));
-err = std(changedMovementTime);
+err = 2*std(changedMovementTime)/sqrt(size(changedMovementTime,1));
+%err = std(changedMovementTime);
 errorbar(x_label_locations(2),mny,err,'o')  
 hold off;
 set(gca,'Xtick',x_label_locations,'XTickLabel',x_axis_labels)
